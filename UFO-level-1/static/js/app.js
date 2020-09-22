@@ -19,6 +19,7 @@ var button = d3.select("#filter-btn")
 var form = d3.select("#datetime")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 button.on("click", runEnter);
 form.on("submit",runEnter);
 
@@ -38,6 +39,9 @@ function runEnter(){
         });
     });
 }
+=======
+console.log(form)
+>>>>>>> parent of 003cfb6... table filter working
 =======
 console.log(form)
 >>>>>>> parent of 003cfb6... table filter working
