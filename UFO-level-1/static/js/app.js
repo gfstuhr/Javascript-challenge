@@ -6,13 +6,13 @@ var tableData = data;
 var table = d3.select("tbody");
 
 //Add all Data to table
-tableData.forEach((ufo_sighting)=>{
-    var row = table.append("tr");
-    Object.entries(ufo_sighting).forEach(([key,value])=>{
-        var cell = row.append("td");
-        cell.text(value)
-    });
-});
+// tableData.forEach((ufo_sighting)=>{
+//     var row = table.append("tr");
+//     Object.entries(ufo_sighting).forEach(([key,value])=>{
+//         var cell = row.append("td");
+//         cell.text(value)
+//     });
+// });
 
 // Filtered Table
 var button = d3.select("form")
@@ -23,6 +23,8 @@ form.on("submit",runEnter);
 
 function runEnter(){
     d3.event.preventDefault();
+
+    // $("#tbody").remove();
 
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
