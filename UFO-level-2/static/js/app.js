@@ -24,8 +24,8 @@ function onlyUnique(value, index, self) {
 cities = tableData.map(entry => entry.city);
 unique_cities = cities.filter(onlyUnique);
 var cityElement = d3.select("#City_Filter");
-blankoption=cityElement.append("option");
-blankoption.text("City");
+cityoption=cityElement.append("option");
+cityoption.text("City");
 unique_cities.forEach((city)=>{
     var currentcity = cityElement.append("option");
     currentcity.text(city);
@@ -36,8 +36,8 @@ unique_cities.forEach((city)=>{
 states = tableData.map(entry => entry.state);
 unique_states = states.filter(onlyUnique);
 var stateElement = d3.select("#State_Filter");
-blankoption=stateElement.append("option");
-blankoption.text("None");
+stateoption=stateElement.append("option");
+stateoption.text("State");
 unique_states.forEach((state)=>{
     var currentcity = stateElement.append("option");
     currentcity.text(state);
@@ -48,8 +48,8 @@ unique_states.forEach((state)=>{
 countires = tableData.map(entry => entry.country);
 unique_countries = countires.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
-blankoption=countryElement.append("option");
-blankoption.text("Country");
+countryoption=countryElement.append("option");
+countryoption.text("Country");
 unique_states.forEach((country)=>{
     var currentcountry = countryElement.append("option");
     currentcountry.text(country);
@@ -60,8 +60,8 @@ unique_states.forEach((country)=>{
 shapes = tableData.map(entry => entry.shape);
 unique_shapes = shapes.filter(onlyUnique);
 var shapeElement = d3.select("#Shape_Filter");
-blankoption=shapeElement.append("option");
-blankoption.text("shape");
+shapeoption=shapeElement.append("option");
+shapeoption.text("Shape");
 unique_shapes.forEach((shape)=>{
     var currentshape = shapeElement.append("option");
     currentshape.text(shape);
@@ -100,7 +100,7 @@ function runEnter(){
     if (cityValue!="City"){
     filteredData = filteredData.filter(city => city.city === cityValue);
     };
-    if (stateValue!="None"){
+    if (stateValue!="State"){
         filteredData = filteredData.filter(state => state.state === stateValue);
     };
     if (stateValue!="Country"){
