@@ -25,7 +25,7 @@ cities = tableData.map(entry => entry.city);
 unique_cities = cities.filter(onlyUnique);
 var cityElement = d3.select("#City_Filter");
 blankoption=cityElement.append("option");
-blankoption.text("None");
+blankoption.text("City");
 unique_cities.forEach((city)=>{
     var currentcity = cityElement.append("option");
     currentcity.text(city);
@@ -97,7 +97,7 @@ function runEnter(){
     if (inputValue!=""){
         filteredData = filteredData.filter(date => date.datetime === inputValue);
     };  
-    if (cityValue!="None"){
+    if (cityValue!="City"){
     filteredData = filteredData.filter(city => city.city === cityValue);
     };
     if (stateValue!="None"){
