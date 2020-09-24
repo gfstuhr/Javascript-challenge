@@ -45,8 +45,8 @@ unique_states.forEach((state)=>{
 })
 
 // Country Drop drown
-countries = tableData.map(entry => entry.country);
-unique_countries = countries.filter(onlyUnique);
+countires = tableData.map(entry => entry.country);
+unique_countries = countires.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
 blankoption=countryElement.append("option");
 blankoption.text("Country");
