@@ -22,9 +22,10 @@ function onlyUnique(value, index, self) {
 
 // cities drop down
 cities = tableData.map(entry => entry.city);
-
 unique_cities = cities.filter(onlyUnique);
 var cityElement = d3.select("#City_Filter");
+blankoption=cityElement.append("option");
+blankoption.text("None")
 unique_cities.forEach((city)=>{
     var currentcity = cityElement.append("option");
     currentcity.text(city);
@@ -33,9 +34,10 @@ unique_cities.forEach((city)=>{
 
 // State Drop drown
 states = tableData.map(entry => entry.state);
-
 unique_states = states.filter(onlyUnique);
 var stateElement = d3.select("#State_Filter");
+blankoption=stateElement.append("option");
+blankoption.text("None")
 unique_states.forEach((state)=>{
     var currentcity = stateElement.append("option");
     currentcity.text(state);
@@ -44,9 +46,10 @@ unique_states.forEach((state)=>{
 
 // Country Drop drown
 countires = tableData.map(entry => entry.country);
-
 unique_countries = countires.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
+blankoption=countryElement.append("option");
+blankoption.text("None")
 unique_countries.forEach((country)=>{
     var currentcountry = countryElement.append("option");
     currentcountry.text(country);
@@ -55,9 +58,10 @@ unique_countries.forEach((country)=>{
 
 // Shape Drop drown
 shapes = tableData.map(entry => entry.shape);
-
 unique_shapes = shapes.filter(onlyUnique);
 var shapeElement = d3.select("#Shape_Filter");
+blankoption=shapeElement.append("option");
+blankoption.text("None")
 unique_shapes.forEach((shape)=>{
     var currentshape = shapeElement.append("option");
     currentshape.text(shape);
