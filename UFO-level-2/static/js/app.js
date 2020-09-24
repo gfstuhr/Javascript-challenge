@@ -73,17 +73,26 @@ button.on("click", runEnter);
 form.on("submit",runEnter);
 
 function runEnter(){
+    // Prevent refresh
     d3.event.preventDefault();
 
+    // Select input element
     var inputElement = d3.select("#datetime");
+    
+    // Selecting input and filter values
     var inputValue = inputElement.property("value");
-
     var cityValue = cityElement.property("value");
     var stateValue = stateElement.property("value");
+    var countryValue = countryElement.property("value");
+    var shapeValue = countryElement.property("value");
 
+    // Applying filters
     var filteredData = tableData
     filteredData = filteredData.filter(city => city.city === cityValue)
     filteredData = filteredData.filter(state => state.state === stateValue)
+    filteredData = filteredData.filter(country => country.country === countryValue)
+    filteredData = filteredData.filter(shape => shape.shape === shapeValue)
+
 
     
     if (inputValue!=""){
