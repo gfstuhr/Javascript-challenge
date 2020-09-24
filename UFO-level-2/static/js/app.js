@@ -54,14 +54,14 @@ unique_countries.forEach((country)=>{
 })
 
 // Shape Drop drown
-states = tableData.map(entry => entry.state);
+shapes = tableData.map(entry => entry.shape);
 
-unique_states = states.filter(onlyUnique);
-var stateElement = d3.select("#State_Filter");
-unique_states.forEach((state)=>{
-    var currentcity = stateElement.append("option");
-    currentcity.text(state);
-    currentcity.property("value", state);
+unique_shapes = shapes.filter(onlyUnique);
+var shapeElement = d3.select("#Shape_Filter");
+unique_shapes.forEach((shape)=>{
+    var currentshape = shapeElement.append("option");
+    currentshape.text(shape);
+    currentshape.property("value", shape);
 })
 
 
