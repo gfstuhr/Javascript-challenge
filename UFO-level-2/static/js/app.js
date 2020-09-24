@@ -49,8 +49,8 @@ countries = tableData.map(entry => entry.country);
 unique_countries = countries.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
 blankoption=countryElement.append("option");
-blankoption.text("None");
-unique_countries.forEach((country)=>{
+blankoption.text("Country");
+unique_states.forEach((country)=>{
     var currentcountry = countryElement.append("option");
     currentcountry.text(country);
     currentcountry.property("value", country);
@@ -61,12 +61,12 @@ shapes = tableData.map(entry => entry.shape);
 unique_shapes = shapes.filter(onlyUnique);
 var shapeElement = d3.select("#Shape_Filter");
 blankoption=shapeElement.append("option");
-blankoption.text("None");
+blankoption.text("shape");
 unique_shapes.forEach((shape)=>{
     var currentshape = shapeElement.append("option");
     currentshape.text(shape);
     currentshape.property("value", shape);
-});
+})
 
 
 // Filtered Table
@@ -103,10 +103,10 @@ function runEnter(){
     if (stateValue!="State"){
         filteredData = filteredData.filter(state => state.state === stateValue);
     };
-    if (countryValue!="None"){
+    if (stateValue!="Country"){
         filteredData = filteredData.filter(country => country.country === countryValue);
     };
-    if (shapeValue!="None"){
+    if (shapeValue!="Shape"){
     filteredData = filteredData.filter(shape => shape.shape === shapeValue); 
     };
 
