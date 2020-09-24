@@ -37,7 +37,7 @@ states = tableData.map(entry => entry.state);
 unique_states = states.filter(onlyUnique);
 var stateElement = d3.select("#State_Filter");
 blankoption=stateElement.append("option");
-blankoption.text("None");
+blankoption.text("State");
 unique_states.forEach((state)=>{
     var currentcity = stateElement.append("option");
     currentcity.text(state);
@@ -100,7 +100,7 @@ function runEnter(){
     if (cityValue!="City"){
     filteredData = filteredData.filter(city => city.city === cityValue);
     };
-    if (stateValue!="None"){
+    if (stateValue!="State"){
         filteredData = filteredData.filter(state => state.state === stateValue);
     };
     if (countryValue!="None"){
