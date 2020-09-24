@@ -17,56 +17,56 @@ tableData.forEach((ufo_sighting)=>{
 // Fucntion to find unique values
 function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
-  }
+  };
 
 
 // cities drop down
 cities = tableData.map(entry => entry.city);
 unique_cities = cities.filter(onlyUnique);
 var cityElement = d3.select("#City_Filter");
-cityoption=cityElement.append("option");
-cityoption.text("City");
+blankoption=cityElement.append("option");
+blankoption.text("City");
 unique_cities.forEach((city)=>{
     var currentcity = cityElement.append("option");
     currentcity.text(city);
     currentcity.property("value", city);
-})
+});
 
 // State Drop drown
 states = tableData.map(entry => entry.state);
 unique_states = states.filter(onlyUnique);
 var stateElement = d3.select("#State_Filter");
-stateoption=stateElement.append("option");
-stateoption.text("State");
+blankoption=stateElement.append("option");
+blankoption.text("State");
 unique_states.forEach((state)=>{
-    var currentcity = stateElement.append("option");
-    currentcity.text(state);
-    currentcity.property("value", state);
-})
+    var currentstate = stateElement.append("option");
+    currentstate.text(state);
+    currentstate.property("value", state);
+});
 
 // Country Drop drown
-countires = tableData.map(entry => entry.country);
-unique_countries = countires.filter(onlyUnique);
+countries = tableData.map(entry => entry.country);
+unique_countries = countries.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
-countryoption=countryElement.append("option");
-countryoption.text("Country");
-unique_states.forEach((country)=>{
+blankoption=countryElement.append("option");
+blankoption.text("Country");
+unique_countries.forEach((country)=>{
     var currentcountry = countryElement.append("option");
     currentcountry.text(country);
     currentcountry.property("value", country);
-})
+});
 
 // Shape Drop drown
 shapes = tableData.map(entry => entry.shape);
 unique_shapes = shapes.filter(onlyUnique);
 var shapeElement = d3.select("#Shape_Filter");
-shapeoption=shapeElement.append("option");
-shapeoption.text("Shape");
+blankoption=shapeElement.append("option");
+blankoption.text("Shape");
 unique_shapes.forEach((shape)=>{
     var currentshape = shapeElement.append("option");
     currentshape.text(shape);
     currentshape.property("value", shape);
-})
+});
 
 
 // Filtered Table
@@ -88,7 +88,7 @@ function runEnter(){
     var cityValue = cityElement.property("value");
     var stateValue = stateElement.property("value");
     var countryValue = countryElement.property("value");
-    var shapeValue = countryElement.property("value");
+    var shapeValue = shapeElement.property("value");
 
     // Applying filters
     var filteredData = tableData
@@ -98,16 +98,16 @@ function runEnter(){
         filteredData = filteredData.filter(date => date.datetime === inputValue);
     };  
     if (cityValue!="City"){
-    filteredData = filteredData.filter(city => city.city === cityValue);
+        filteredData = filteredData.filter(city => city.city === cityValue);
     };
     if (stateValue!="State"){
         filteredData = filteredData.filter(state => state.state === stateValue);
     };
-    if (stateValue!="Country"){
+    if (countryValue!="Country"){
         filteredData = filteredData.filter(country => country.country === countryValue);
     };
     if (shapeValue!="Shape"){
-    filteredData = filteredData.filter(shape => shape.shape === shapeValue); 
+        filteredData = filteredData.filter(shape => shape.shape === shapeValue); 
     };
 
 
