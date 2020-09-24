@@ -42,6 +42,28 @@ unique_states.forEach((state)=>{
     currentcity.property("value", state);
 })
 
+// Country Drop drown
+countires = tableData.map(entry => entry.country);
+
+unique_countries = countires.filter(onlyUnique);
+var countryElement = d3.select("#Country_Filter");
+unique_countries.forEach((country)=>{
+    var currentcountry = countryElement.append("option");
+    currentcountry.text(country);
+    currentcountry.property("value", country);
+})
+
+// Shape Drop drown
+states = tableData.map(entry => entry.state);
+
+unique_states = states.filter(onlyUnique);
+var stateElement = d3.select("#State_Filter");
+unique_states.forEach((state)=>{
+    var currentcity = stateElement.append("option");
+    currentcity.text(state);
+    currentcity.property("value", state);
+})
+
 
 // Filtered Table
 var button = d3.select("button");
