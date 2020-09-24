@@ -25,7 +25,7 @@ cities = tableData.map(entry => entry.city);
 unique_cities = cities.filter(onlyUnique);
 var cityElement = d3.select("#City_Filter");
 blankoption=cityElement.append("option");
-blankoption.text("None")
+blankoption.text("None");
 unique_cities.forEach((city)=>{
     var currentcity = cityElement.append("option");
     currentcity.text(city);
@@ -37,7 +37,7 @@ states = tableData.map(entry => entry.state);
 unique_states = states.filter(onlyUnique);
 var stateElement = d3.select("#State_Filter");
 blankoption=stateElement.append("option");
-blankoption.text("None")
+blankoption.text("None");
 unique_states.forEach((state)=>{
     var currentcity = stateElement.append("option");
     currentcity.text(state);
@@ -49,7 +49,7 @@ countires = tableData.map(entry => entry.country);
 unique_countries = countires.filter(onlyUnique);
 var countryElement = d3.select("#Country_Filter");
 blankoption=countryElement.append("option");
-blankoption.text("None")
+blankoption.text("None");
 unique_countries.forEach((country)=>{
     var currentcountry = countryElement.append("option");
     currentcountry.text(country);
@@ -61,12 +61,12 @@ shapes = tableData.map(entry => entry.shape);
 unique_shapes = shapes.filter(onlyUnique);
 var shapeElement = d3.select("#Shape_Filter");
 blankoption=shapeElement.append("option");
-blankoption.text("None")
+blankoption.text("None");
 unique_shapes.forEach((shape)=>{
     var currentshape = shapeElement.append("option");
     currentshape.text(shape);
     currentshape.property("value", shape);
-})
+});
 
 
 // Filtered Table
@@ -92,19 +92,31 @@ function runEnter(){
 
     // Applying filters
     var filteredData = tableData
-    filteredData = filteredData.filter(city => city.city === cityValue)
-    filteredData = filteredData.filter(state => state.state === stateValue)
-    filteredData = filteredData.filter(country => country.country === countryValue)
-    filteredData = filteredData.filter(shape => shape.shape === shapeValue)
 
-
-    
+    //Option to leave filters blank
     if (inputValue!=""){
         filteredData = filteredData.filter(date => date.datetime === inputValue);
-    }
+    };
+    
+    if (cityValue!="None"){
+    filteredData = filteredData.filter(city => city.city === cityValue);
+    };
+    if (stateValue!="None"){
+        filteredData = filteredData.filter(state => state.state === stateValue);
+    };
+    if (countryValue!="None"){
+        filteredData = filteredData.filter(country => country.country === countryValue);
+    };
+    if (shapeValue!="None"){
+    filteredData = filteredData.filter(shape => shape.shape === shapeValue); 
+    };
 
+
+
+    // Reset table
     tbody.html("");
 
+    // Add selected rows after filter
     filteredData.forEach((ufo_sighting)=>{
         var row = tbody.append("tr");
         Object.entries(ufo_sighting).forEach(([key,value])=>{
